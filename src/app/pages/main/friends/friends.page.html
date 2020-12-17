@@ -1,0 +1,61 @@
+
+
+<ion-content>
+    <h1 style="padding-left: 10px;">Friends</h1>
+
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-fab-button [routerLink]="['../search']">
+              <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+
+    <ion-searchbar (ionChange)="getItems($event)" placeholder="Search friend..." showCancelButton="never" cancelButtonIcon="close-outline"></ion-searchbar>
+    
+    <div *ngIf="!isItemAvailable">
+        <ion-list *ngFor="let us of user">
+            <ion-item-sliding #slidingItem>
+        
+                <ion-item-options side="end">
+                    <ion-item-option color="danger" (click)="confirmDelete(us.key, slidingItem)">
+                      <ion-icon name="trash" slot="icon-only"></ion-icon>
+                    </ion-item-option>
+                  </ion-item-options>
+        
+                  <ion-item>
+                    <ion-avatar>
+                        <img src="{{us.imageURL}}">
+                    </ion-avatar>
+                    <h3>{{us.first_name | titlecase}} {{us.last_name | titlecase}}</h3>
+                </ion-item>
+        
+            </ion-item-sliding>
+        
+                
+            </ion-list>
+    </div>
+
+    <div *ngIf="isItemAvailable">
+        <ion-list *ngFor="let us of userSearch">
+            <ion-item-sliding #slidingItem>
+        
+                <ion-item-options side="end">
+                    <ion-item-option color="danger" (click)="confirmDelete(us.key, slidingItem)">
+                      <ion-icon name="trash" slot="icon-only"></ion-icon>
+                    </ion-item-option>
+                  </ion-item-options>
+        
+                  <ion-item>
+                    <ion-avatar>
+                        <img src="{{us.imageURL}}">
+                    </ion-avatar>
+                    <h3>{{us.first_name | titlecase}} {{us.last_name | titlecase}}</h3>
+                </ion-item>
+        
+            </ion-item-sliding>
+        
+                
+            </ion-list>
+    </div>
+    
+
+</ion-content>

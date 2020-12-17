@@ -1,0 +1,37 @@
+
+
+<ion-content>
+    
+    <div #map id="map">
+       
+    </div>
+    <div *ngIf="!isCheckin">
+        <div class="first">
+            <ion-button color="primary" expand="full" (click)="changeBtn()">
+                <ion-label>Check in Location</ion-label>
+            </ion-button>
+        </div>
+        <ion-fab vertical="bottom" horizontal="end">
+            <ion-fab-button (click)="centerMap()" >
+                <ion-icon name="locate-outline"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+    </div>
+
+    <div *ngIf="isCheckin">
+        <div class="first">
+            <ion-input [(ngModel)]="inputPlace" placeholder="Input Titile Place" ></ion-input>
+            <ion-button color="primary"(click)="showCurrentLoc()">
+                <ion-label>Check in</ion-label>
+            </ion-button>
+            <ion-button color="danger"(click)="closeBtn()">
+                <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+
+        </div>
+    </div>
+    
+    
+   
+</ion-content>
+

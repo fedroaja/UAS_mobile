@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+
+      <ion-buttons slot="start">
+      <ion-back-button defaultHref="/main/friends"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Search New Friends</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar autocorrect="off" (change)="search($event)" placeholder="Search Friend by Email" showCancelButton="never" cancelButtonIcon="close-outline"></ion-searchbar>
+   
+  <ion-list *ngFor="let user of userSearch" >
+    <ion-item lines="none">
+      <ion-avatar>
+        <img src="{{user.info['imageURL']}}">
+      </ion-avatar>
+    </ion-item>
+    <ion-item lines="none">
+      <h1><strong>{{user.info['first_name'] | titlecase}} {{user.info['last_name'] | titlecase}}</strong></h1>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-button color="success" *ngIf="showHide" (click)="addfriend(user.info['key'],user.info['first_name'],user.info['last_name'],user.info['imageURL'])">
+        <ion-label>ADD Friend</ion-label>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  
+  
+</ion-content>

@@ -1,0 +1,23 @@
+
+
+ion-content{
+    
+    ion-avatar{
+        display: table;
+        margin: 0 auto;
+        margin-top: 10%;
+        margin-bottom: 8px;
+        img{
+            width:auto !important;  
+            height : auto !important;  
+            max-width: 40vw !important;  //any size
+            max-height: 30vh !important;
+        }
+       
+    }
+    h1, ion-button {
+        display: table;
+        margin: 0 auto;
+    }
+    
+}

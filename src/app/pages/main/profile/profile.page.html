@@ -1,0 +1,37 @@
+
+<ion-content>
+
+  
+
+  <ion-list *ngFor="let us of user">
+   
+    <ion-item lines="none">
+      <ion-avatar>
+        <img src="{{us.imageURL}}">
+      </ion-avatar>
+    </ion-item>
+    <ion-item lines="none">
+      <h1><strong>{{us.first_name | titlecase}} {{us.last_name | titlecase}}</strong></h1>
+    </ion-item>
+  </ion-list>
+  
+  
+  <h1>00000021661</h1>
+  <ion-button color="danger">
+    Log out
+  </ion-button>
+
+  <hr>
+
+  <h2>My Feed</h2>
+  <ion-list *ngFor="let feed of feeds">
+    <ion-card>
+      <ion-card-content>
+        {{user[0].first_name | titlecase}} {{user[0].last_name | titlecase}} Check in {{feed.title}}
+        <br>
+        {{feed.waktu}}
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+</ion-content>
