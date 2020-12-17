@@ -65,8 +65,7 @@ export class MapsPage implements OnInit {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
-        console.log(pos);
-        console.log(this.inputPlace)
+      
         this.currLat = position.coords.latitude.toString();
         this.currLng = position.coords.longitude.toString();
         
@@ -147,8 +146,7 @@ export class MapsPage implements OnInit {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
-        console.log(pos);
-        console.log(this.inputPlace)
+    
         this.currLat = position.coords.latitude.toString();
         this.currLng = position.coords.longitude.toString();
         

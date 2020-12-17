@@ -48,11 +48,9 @@ export class LoginPage implements OnInit {
   loginUser(value) {
     this.authSrv.loginUser(value)
       .then(res =>{
-        console.log(res);
         this.errorMessage = '';
-        this.navCtrl.navigateForward('/main');
+        this.navCtrl.navigateForward('/main/maps');
       }, err => {
-        console.log(err);
         this.errorMessage = err.message;
       });
   }

@@ -2,36 +2,70 @@
 <ion-content>
 
   
-
-  <ion-list *ngFor="let us of user">
+  <div class="top"> 
+    <ion-list *ngFor="let us of user">
    
-    <ion-item lines="none">
-      <ion-avatar>
-        <img src="{{us.imageURL}}">
-      </ion-avatar>
-    </ion-item>
-    <ion-item lines="none">
-      <h1><strong>{{us.first_name | titlecase}} {{us.last_name | titlecase}}</strong></h1>
-    </ion-item>
-  </ion-list>
+      <ion-item lines="none">
+        <ion-avatar>
+          <img src="{{us.imageURL}}">
+        </ion-avatar>
+      </ion-item>
+      <ion-item lines="none">
+        <h1><strong>{{us.first_name | titlecase}} {{us.last_name | titlecase}}</strong></h1>
+      </ion-item>
+      <ion-item lines="none">
+        <h1>00000021661</h1>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-button color="danger"(click)="logout()" >
+          Log out
+        </ion-button>
+      </ion-item>
+      <ion-item lines="none">
+        Mobile Mantap
+      </ion-item>
+      <ion-item>
+        <h4 >My Feed</h4>
+
+      </ion-item>
+    </ion-list>
+
+  </div>
+ 
+
   
   
-  <h1>00000021661</h1>
-  <ion-button color="danger">
-    Log out
-  </ion-button>
+   
 
-  <hr>
+    <div scrolly="true" id="myFixZone">
+      <ion-list *ngFor="let feed of feeds?.reverse()" >
+        <ion-item-sliding #slidingItem>
 
-  <h2>My Feed</h2>
-  <ion-list *ngFor="let feed of feeds">
-    <ion-card>
-      <ion-card-content>
-        {{user[0].first_name | titlecase}} {{user[0].last_name | titlecase}} Check in {{feed.title}}
-        <br>
-        {{feed.waktu}}
-      </ion-card-content>
-    </ion-card>
-  </ion-list>
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="confirmDelete(feed.waktu, slidingItem)">
+              <ion-icon name="trash" slot="icon-only"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+
+          <ion-item>
+            <ion-card>
+              <ion-card-header>
+                {{feed.title}}
+              </ion-card-header>
+              <ion-card-content>
+                {{user[0].first_name | titlecase}} {{user[0].last_name | titlecase}} do Check in 
+                <br>
+                {{feed.waktu}}
+              </ion-card-content>
+            </ion-card>
+          </ion-item>
+         
+
+        </ion-item-sliding>
+
+       
+      </ion-list>
+    </div>
+  
 
 </ion-content>

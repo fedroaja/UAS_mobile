@@ -32,7 +32,7 @@ export class FriendsPage implements OnInit {
        this.db.list(`/friendlist/${this.UID}`).valueChanges().subscribe(
         res => {
           this.user = res
-          console.log(res)
+   
         }
       )
     });
@@ -44,7 +44,7 @@ export class FriendsPage implements OnInit {
        this.db.list(`/friendlist/${this.UID}`).valueChanges().subscribe(
         res => {
           this.user = res
-          console.log(res)
+         
         }
       )
     });
@@ -52,7 +52,6 @@ export class FriendsPage implements OnInit {
   }
 
   delete(key:string, slidingItems){
-    console.log(key)
     this.db.list(`/friendlist/${this.UID}/${key}`).remove()
       .then(res => {
         slidingItems.close();

@@ -35,19 +35,15 @@ export class SearchPage implements OnInit {
         res => {
           if(res[0]['email'] == event.target.value){
             this.showHide = false;
-            console.log("sama")
           }else{
             this.showHide = true;
-            console.log("beda")
           }
         }
       )
     });
-    console.log(event.target.value)
     this.db.list('/users', ref=> ref.orderByChild('info/email').equalTo(event.target.value)).valueChanges().subscribe(res => {
       this.userSearch = res
-      console.log(res);
-      console.log(this.userSearch)
+     
     })
   }
 

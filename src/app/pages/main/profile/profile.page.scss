@@ -20,9 +20,12 @@ ion-content{
         margin: 0 auto;
     }
 
-    hr {
-        
-        background:  grey !important;
-      }
+ 
+      
     
+}
+.top{
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
